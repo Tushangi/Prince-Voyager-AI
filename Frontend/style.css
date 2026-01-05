@@ -1,0 +1,218 @@
+/* --- 1. GLOBAL & BACKGROUND --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #00818a; /* Page background blue */
+    height: 100vh;
+    font-family: "Times New Roman", Times, serif;
+}
+
+@keyframes messagePop {
+    0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* --- 2. TOGGLE BUTTON --- */
+#chat-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background: #ffffff; /* White button */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 2000;
+}
+
+#chat-icon img {
+    width: 50px;
+    /* Isse icon blue dikhega */
+    filter: invert(34%) sepia(87%) saturate(432%) hue-rotate(134deg) brightness(91%) contrast(101%);
+}
+
+/* --- 3. BOT CONTAINER (OLD DESIGN) --- */
+.bot-container {
+    display: none; /* Toggle ke liye */
+    width: 380px;
+    height:480px;
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.bot-header {
+    background: #00818a;
+    color:#333;
+    padding: 20px 10px;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:italic;
+}
+
+.bot-body {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f7f6;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 4. MESSAGE BUBBLES (SAME AS BEFORE) --- */
+.message-bubble {
+    padding: 8px 14px;
+    margin-bottom: 12px;
+    font-size: 16px; 
+    line-height: 1.4;
+    max-width: 80%;
+    width: fit-content; /* VAAPAS WAHI PURANA SIZE */
+    display: inline-block; 
+    word-wrap: break-word;
+    animation: messagePop 0.3s ease-out forwards;
+}
+
+.bot-msg{
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #333;
+    
+    /* Sides mein equal space dene ke liye padding badhayi hai */
+    padding: 15px 20px; 
+    margin-bottom: 15px;
+    
+    /* Box ko thoda bada karne ke liye width adjust ki hai */
+    width: fit-content;
+    max-width: 85%; 
+    
+    border-radius: 18px 18px 18px 5px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.05);
+    
+    /* Text ko saaf dikhane ke liye line height */
+    line-height: 1.5;
+    font-family: "Times New Roman", Times, serif;
+    
+    /* Agar aap text ko center karna chahte hain toh niche wali line rakhein */
+    text-align: left; 
+}
+
+.user-msg {
+    align-self: flex-end;
+    background-color: #00818a;
+    color: white;
+    border-radius: 15px 15px 4px 15px;
+}
+
+/* --- 5. OPTIONS & INPUT --- */
+.options-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+
+   /* --- BUTTON OPTIONS (Smaller & Times New Roman) --- */
+.opt {
+    flex: 1;                   
+    background: white;
+    border: 1px solid #00818a;
+    color: #00818a;
+    
+    /* Height aur Width ko chota karne ke liye padding kam ki hai */
+    padding: 5px 2px; 
+    margin: 0 2px;
+    
+    border-radius: 15px; /* Thoda kam round kiya hai chote size ke liye */
+    cursor: pointer;
+    
+    /* Font settings */
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 13px; /* Font size thoda chota kiya hai */
+    
+    white-space: nowrap;
+    transition: 0.3s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px; /* Icon aur text ke beech ki jagah */
+}
+
+.opt:hover {
+    background: #00818a;
+    color: white;
+}
+
+/* Icons ka size bhi thoda chota karne ke liye (Optional) */
+.opt span, .opt i {
+    font-size: 14px;
+}
+
+.bot-input-area {
+    padding: 15px;
+    background: white;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+.bot-input-area input {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px 15px;
+    outline: none;
+}
+
+.send-btn {
+    background: #ff7e00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+/* Center & Enlarge PRINCE TRAVELS */
+.web-header {
+    text-align: center;
+    margin-bottom: 100px
+}
+.web-logo {
+    animation: softFadeUp 1.6s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+.hero-section h1 {
+    font-size: 0.8rem;/* thoda chhota */
+    font-weight: 400;
+    font-style: italic;       /* SAME font style */
+    line-height:0.5;
+    text-align: center;
+    white-space: nowrap;      /* FORCE SINGLE LINE */
+}
+
+
+/* Fade-in animation */
+@keyframes softFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
